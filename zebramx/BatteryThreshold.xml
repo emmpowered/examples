@@ -1,0 +1,10 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="7.2" type="AnalyticsMgr">
+    <parm name="AnalyticsAction" value="1" />
+    <parm name="EnableDAEToggle" value="1" />
+  </characteristic>
+  <characteristic version="4.4" type="BatteryMgr">
+    <parm name="SetBatteryUsageDecommissionThreshold" value="65535" />
+    <parm name="SetPercentDecommissionThreshold" value="1" />
+  </characteristic>
+</wap-provisioningdoc>

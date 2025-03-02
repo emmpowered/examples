@@ -1,0 +1,5 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="10.1" type="DisplayMgr">
+    <parm name="Autorotate" value="2" />
+  </characteristic>
+</wap-provisioningdoc>

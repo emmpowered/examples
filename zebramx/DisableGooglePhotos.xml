@@ -1,0 +1,6 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="10.3" type="AppMgr">
+    <parm name="Action" value="DisableApplication" />
+    <parm name="Package" value="com.google.android.apps.photos" />
+  </characteristic>
+</wap-provisioningdoc>

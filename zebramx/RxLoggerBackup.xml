@@ -1,0 +1,6 @@
+<wap-provisioningdoc>
+  <characteristic version="7.0" type="Intent">
+    <parm name="Action" value="Broadcast" />
+    <parm name="ActionName" value="com.symbol.rxlogger.intent.action.BACKUP_NOW" />
+  </characteristic>
+</wap-provisioningdoc>

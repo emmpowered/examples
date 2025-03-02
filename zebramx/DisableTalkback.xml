@@ -1,0 +1,6 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="8.0" type="AppMgr">
+    <parm name="Action" value="DisableApplication" />
+    <parm name="Package" value="com.google.android.marvin.talkback" />
+  </characteristic>
+</wap-provisioningdoc>

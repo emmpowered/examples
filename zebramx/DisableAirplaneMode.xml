@@ -1,0 +1,5 @@
+﻿<wap-provisioningdoc>
+    <characteristic type="SettingsMgr" version="4.3" >
+        <parm name="AirplaneMode" value="2"/>
+    </characteristic>
+</wap-provisioningdoc>

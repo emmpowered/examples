@@ -1,0 +1,5 @@
+<wap-provisioningdoc>
+    <characteristic version="8.2" type="UiMgr">
+        <parm name="LongPressHomeKeyUsage" value="2" />
+    </characteristic>
+</wap-provisioningdoc>

@@ -1,0 +1,5 @@
+<wap-provisioningdoc>
+  <characteristic type="UiMgr" version="10.1" >
+    <parm name="ShowBatteryPercentage" value="1"/>
+  </characteristic>
+</wap-provisioningdoc>

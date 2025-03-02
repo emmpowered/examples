@@ -1,0 +1,5 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="6.1" type="WirelessMgr">
+    <parm name="BluetoothState" value="1" />
+  </characteristic>
+</wap-provisioningdoc>

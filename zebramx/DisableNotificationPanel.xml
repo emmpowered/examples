@@ -1,0 +1,5 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="8.0" type="UiMgr">
+    <parm name="NotificationPullDown" value="2" />
+  </characteristic>
+</wap-provisioningdoc>

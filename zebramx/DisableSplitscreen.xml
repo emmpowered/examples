@@ -1,0 +1,5 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="9.0" type="UiMgr">
+    <parm name="SplitScreenMode" value="2" />
+  </characteristic>
+</wap-provisioningdoc>
