@@ -1,0 +1,5 @@
+<wap-provisioningdoc>
+    <characteristic type="WirelessMgr" version="4.3" >
+        <parm name="NFCState" value="2"/>
+    </characteristic>
+</wap-provisioningdoc>
