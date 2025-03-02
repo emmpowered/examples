@@ -1,0 +1,13 @@
+{
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME":"com.airwatch.androidagent/com.airwatch.agent.DeviceAdministratorReceiver",
+"android.app.extra.PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM":"6kyqxDOjgS30jvQuzh4uvHPk-0bmAD-1QU7vtW7i_o8=\n",
+"android.app.extra.PROVISIONING_SKIP_ENCRYPTION":"false",
+"android.app.extra.PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED":"true",
+"android.app.extra.PROVISIONING_ADMIN_EXTRAS_BUNDLE": {
+"serverurl": "dsXXXX.airwatchportals.com",
+"gid": "groupid",
+"un":"stagingusername",
+"pw":"*stagingpassword",
+"useUEMAuthentication": "true",
+"allowUnpinning": "true", "unpinPassword": "unpinpassword"}
+}
