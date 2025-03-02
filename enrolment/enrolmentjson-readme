@@ -1,0 +1,7 @@
+***Replace the following values to customise the example JSON file for your environment***
+
+XXXX in serverurl with the environment number of your tenant, eg. CN500
+groupid with the group id for the organisation group devices will be enrolled under
+stagingusername with the username of the staging account you will be using to enrol each device
+stagingpassword with the password for the staging user
+unpinpassword with a password of your choosing, which will allow you to exit the Intelligent Hub app on the device if experiencing errors or other issues during the enrolment process. 
