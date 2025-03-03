@@ -1,6 +1,6 @@
 # EMMpowered Blog Code Examples Repository
 
-Welcome to the **EMMpowered Blog Code Examples Repository**! This repository contains code snippets, scripts, and examples referenced in the blog posts on [EMMpowered](https://emmpowered.blog).
+Welcome to the **EMMpowered Blog Code Examples Repository**! This repository contains code snippets, scripts, and examples referenced in posts on the [EMMpowered](https://emmpowered.blog) blog.
 
 ## About EMMpowered
 [EMMpowered](https://emmpowered.blog) is a blog dedicated to enterprise mobility management (EMM), with a special focus on Zebra rugged Android devices and Omnissa Workspace One. The blog provides insights, tips, and tricks for IT professionals managing enterprise mobility solutions.
