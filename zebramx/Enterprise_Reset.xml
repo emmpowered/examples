@@ -1,0 +1,5 @@
+﻿<wap-provisioningdoc>
+  <characteristic version="4.2" type="PowerMgr">
+    <parm name="ResetAction" value="5" />
+  </characteristic>
+</wap-provisioningdoc>
