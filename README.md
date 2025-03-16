@@ -27,5 +27,5 @@ All code in this repository is released under the **MIT License** unless stated 
 ## Connect
 For updates and discussions, follow the blog at [EMMpowered](https://emmpowered.blog) or reach out via the comments section on individual blog posts.
 
-Happy coding!
+Happy scripting!
 
