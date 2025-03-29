@@ -4,7 +4,7 @@
 	 Created on:   	09/03/2025
 	 Created by:   	Jamie Marsh - https://emmpowered.blog
 	 Filename:     	UEMAuth.ps1
-     Version:       3.0
+     Version:       5.0
 	===========================================================================
 	.DESCRIPTION 
 		This script is called on by other scripts to set Workspace One UEM tenant variables, request OAuth Tokens & generate headers required for these scripts to successfully run. 
@@ -25,8 +25,7 @@ $global:Domain = "airwatchportals.com" # you may need to change this to awmdm.co
 $global:WS1url = $global:ASnumber + "." + $global:domain
 
 # Set your Workspace ONE UEM SaaS Data Center Location
-$global:Region = "Australia" # Set this value to US, Canada, UK, Germany, India, Japan, Singapore, Australia or Hong Kong depending on the Data Centre location of your UEM Tenant
-
+$global:Region = "None" # Set this value to US, Canada, UK, Germany, India, Japan, Singapore, Australia or Hong Kong depending on the Data Centre location of your UEM Tenant
 
 #####################################################
 ################ END OF SECTION #####################
@@ -38,24 +37,44 @@ $global:Content = "application/xml"
 # Set location for OAuth Credentials file
 $CredentialsFile = "$(Get-Location)\UEMCredentials.xml"
 
-# Check if the file exists before attempting to import it
-if (-Not (Test-Path $CredentialsFile)) {
-    Write-Host "Error: The file '$CredentialsFile' is missing. Attempting to generate credentials..." -ForegroundColor Yellow
+# Get the name of the calling script
+$CallingScript = if ($MyInvocation.ScriptName) { [System.IO.Path]::GetFileName($MyInvocation.ScriptName) } else { "Unknown Script" }
 
-    # Try to generate the credentials file
+# Try to generate the credentials file
+function Prompt-ForCredentials {
     try {
-		# Prompt for credentials, and export to an XML file in the same location the script was run from
-		Get-Credential | Export-CliXml -Path $CredentialsFile
+        # Prompt for credentials and export to an XML file
+        Get-Credential | Export-CliXml -Path $CredentialsFile
         Write-Host "Credentials generation successful." -ForegroundColor Green
     } catch {
-        Write-Host "Error: Generating credentials file failed. Exiting." -ForegroundColor Red
-        exit 1  # Exit the script with a non-zero exit code to indicate failure
+        Write-Host "Error: Generating credentials file failed, retrying..." -ForegroundColor Red
+    }
+}
+
+# Initial credentials prompt
+Prompt-ForCredentials
+
+# Check if the credentials file was created, if not, prompt again
+if (!(Test-Path $CredentialsFile)) {
+    Write-Host "Credentials file not found. Please enter credentials again." -ForegroundColor Yellow
+    Prompt-ForCredentials
+    
+    # Final check, exit if still missing
+    if (!(Test-Path $CredentialsFile)) {
+        Write-Host "Error: Credentials file not created. Exiting." -ForegroundColor Red
+        throw "Halting execution of '$CallingScript' due to an error."
     }
 }
 
 # Import XML with encrypted credentials for OAuth Token requests
-$Credentials = Import-CliXml -Path $CredentialsFile
-Write-Host "`nCredentials successfully loaded from '$CredentialsFile'" -ForegroundColor Green
+try {
+    $Credentials = Import-CliXml -Path $CredentialsFile
+    Write-Host "`nCredentials successfully loaded from '$CredentialsFile'" -ForegroundColor Green
+} catch {
+    Write-Host "Error: Importing credentials file failed. Exiting." -ForegroundColor Red
+    throw "Halting execution of '$CallingScript' due to an error."
+}
+
 
 # Define the mapping of regions to token URLs
 $DataCentres = @{
@@ -70,7 +89,7 @@ $DataCentres = @{
     "Hong Kong"  = "https://apac.uemauth.vmwservices.com/connect/token"
 }
 
-# Set the access token URL based on the selected region, and display this information on screen. 
+# Set the access token URL based on the selected region, and display this information on screen.
 if ($DataCentres.ContainsKey($global:Region)) {
     $TokenURL = $DataCentres[$global:Region]
     Write-Host "`nRegion has been set to " -NoNewline
@@ -78,7 +97,8 @@ if ($DataCentres.ContainsKey($global:Region)) {
     Write-Host ", Token URL set to " -NoNewline
     Write-Host "$TokenURL" -ForegroundColor Green
 } else {
-    Write-Host "`nInvalid region specified. Please re-run the script after specifying a valid region in UEMAuth.ps1 file" -ForegroundColor Red
+    Write-Host "`nInvalid region specified. Please re-run the script after specifying a valid region in UEMAuth.ps1 file." -ForegroundColor Red
+    throw "Halting execution of '$CallingScript' due to an error."
 }
 
 # Function to retrieve OAuth Token from Workspace One UEM
