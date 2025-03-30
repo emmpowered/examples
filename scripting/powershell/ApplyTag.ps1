@@ -4,7 +4,7 @@
 	 Created on:   	10/06/2022
 	 Created by:   	Jamie Marsh - https://emmpowered.blog
 	 Filename:     	ApplyTag.ps1
-     Version:       2.0
+     	 Version:       2.0
 	===========================================================================
 	.DESCRIPTION
 		This script applies a tag to all devices in a specific smartgroup.
